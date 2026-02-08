@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>for you 🤍</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom right, #e6f7ff, #db1ebc);
+        font-family: "Georgia", serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #a64ac9;
+    }
+
+    p {
+        font-size: 18px;
+        color: #444;
+        line-height: 1.6;
+    }
+
+    audio {
+    display: none;
+}
+
+/* title image styling */
+.firstpic-image {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+    .falling {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+.return-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  background: #a64ac9;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+  background: #8e3db0;
+  transform: scale(1.05);
+}
+
+
+</style>
+</head>
+<body>
+<div class="letter">
+    <!-- Corner flowers -->
+    <div class="flower top-left">💜 🌷 💜</div>
+    <div class="flower top-right">🌷</div>
+    <div class="flower bottom-left">🌸</div>
+    <div class="flower bottom-right">💜 🌷 💜</div>
+
+<div class="card">
+    <h1>💜 FOR MY SWEETIE BABY 💜</h1>
+    <p>
+happy 3rd monthsary babe, baby, darling and wifeyy! <br><br>
+
+three months with you already changed my life in ways i can’t even explain. before you, i thought i knew what love was, but loving you showed me a whole new meaning. you didn’t just enter my life, you became a part of it, a special part of me. every day with you feels special, even the quiet and simple moments, because they are with you.
+
+i love you more than myself, and i mean that with my whole heart. i would choose you over my fears, my doubts, and even my own comfort. i am willing to do anything for you, not because i have to, but because loving you makes me want to. you are my only exception, the one person i would break my walls for, the one i would protect no matter what.
+
+you are my safe place. when the world feels too loud and heavy, you are where my heart rests. your smile makes my worst days softer. your hugs feel like home. your love heals parts of me i never talked about. just knowing you’re there makes everything feel okay.
+
+thank you for loving me gently, for choosing me every day, for staying even when i’m not perfect. thank you for understanding my heart even when i struggle to explain it.
+
+i promise to keep choosing you, to love you loudly and quietly, on good days and bad days. i promise to care for your heart the way you care for mine. 3 months may be short, but my love for you already feels endless.
+
+i want you today, tomorrow, and for all the days after. always you, my love.
+        <br><br>
+           <p style="margin-top:20px;">
+           sincerely yours,<br>
+        <b>your baby vince</b>
+    </p>
+
+ <a href="3rd index.html" class="return-btn">← back to main page</a>
+
+</div>
+
+<audio id="music" loop>
+    <source src="ikawatako.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function startMusicAt(timeInSeconds) {
+    const audio = document.getElementById('music');
+    audio.currentTime = timeInSeconds;
+    audio.play();
+}
+
+window.onload = function() {
+    startMusicAt(27);
+};
+
+// images for raining effect
+function createFallingImage() {
+    const img = document.createElement("img");
+    img.classList.add("falling");
+
+    const random = Math.random();
+    if (random < 0.3) {
+        img.src = 'cover.jpeg';
+        img.style.width = '120px';
+        img.style.height = '120px';
+    } else if (random < 0.65) {
+        img.src = 'heart.png';
+        const size = 50 + Math.random() * 100;
+        img.style.width = size + "px";
+        img.style.height = size + "px";
+    } else {
+        img.src = 'flower.png';
+        const size = 50 + Math.random() * 100;
+        img.style.width = size + "px";
+        img.style.height = size + "px";
+    }
+
+    const duration = 4 + Math.random() * 3;
+    img.style.animationDuration = duration + "s";
+    const safeZoneWidth = 700; // middle area to protect (card width + padding)
+const screenWidth = window.innerWidth;
+
+const safeZoneStart = (screenWidth - safeZoneWidth) / 2;
+const safeZoneEnd = safeZoneStart + safeZoneWidth;
+
+let x;
+
+if (Math.random() < 0.5) {
+  // LEFT side only
+  x = Math.random() * safeZoneStart;
+} else {
+  // RIGHT side only
+  x = safeZoneEnd + Math.random() * (screenWidth - safeZoneEnd);
+}
+
+img.style.left = x + "px";
+
+
+    document.body.appendChild(img);
+
+    setTimeout(() => img.remove(), duration * 1000);
+}
+
+setInterval(createFallingImage, 300);
+</script>
+
+
+</body>
+</html>
